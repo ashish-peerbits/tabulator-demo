@@ -1,0 +1,37 @@
+.dob-filter input {
+    color-scheme: dark;
+  }
+
+body {
+    margin: 0;
+    font-family: 'Euclid Circular A', sans-serif;
+    background-color: #f6f8fa;
+    height: 100%;
+
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Euclid Circular A', sans-serif;
+}
+
+.modal-table {
+    font-size: 0.938rem;
+}
+
+.table td, .table th {
+    padding: .6rem;
+}
+.table-bordered thead td, .table-bordered thead th {
+    border-width: 0.063rem;
+}
+
+.form-control:focus,
+.btn:focus {
+    box-shadow: none;
+}
