@@ -161,6 +161,9 @@ const tableColumns = [
     validator: "required",
     editable: editCheck,
     headerWordWrap: true,
+
+    // callback fires when column is clicked
+    // headerClick:()=> alert("header")
   },
   {
     title: "Email",
@@ -252,6 +255,9 @@ const tableOptions = {
   // ------ infinite scroll pagination
   // progressiveLoad: "scroll",
 
+  // 
+  paginationAddRow: "table",  // page | table
+
 
   virtualDom: true,
   height: "600px",
@@ -259,7 +265,7 @@ const tableOptions = {
   sortMode: "remote",
   filterMode: "remote",
 
-  
+
   // for overwriting param names
   // dataReceiveParams:{
   //   "per_page":"per_pages", //change last_page parameter name to "max_pages"
