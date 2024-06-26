@@ -75,7 +75,28 @@ const headerDateEditor = function (cell, onRendered, success, cancel) {
   //submit new value on enter
   input.addEventListener("keydown", e => handleKeyDown(e, onChange, cancel));
 
-  return input;
+
+
+
+  // adding reset filter functionality-----------------------
+  const div = document.createElement('div')
+  div.style = 'display:flex;flex-direction:column'
+  const btn = document.createElement("button")
+  btn.textContent = "reset"
+
+  btn.addEventListener('click', ()=>{
+    success(null)
+    console.log("resetting")
+  })
+
+  div.appendChild(input)
+  div.appendChild(btn)
+
+  return div;
+  // ---------------------------------------------------
+
+
+  // return inupt
 };
 
 /**
