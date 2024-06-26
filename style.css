@@ -35,3 +35,9 @@ h6 {
 .btn:focus {
     box-shadow: none;
 }
+
+
+.tabulator-alert-msg.tabulator-alert-state-msg{
+    border: none !important;
+    background-color: transparent !important;
+}

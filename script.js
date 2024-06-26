@@ -164,6 +164,9 @@ const tableColumns = [
 
     // callback fires when column is clicked
     // headerClick:()=> alert("header")
+
+    // 
+    validator:"string"
   },
   {
     title: "Email",
@@ -256,14 +259,43 @@ const tableOptions = {
   // progressiveLoad: "scroll",
 
   // 
-  paginationAddRow: "table",  // page | table
+  // paginationAddRow: "table",  // page | table
+
+  // 
+  validationMode:"highlight",
+
+
+  // 
+  dataLoader: true,
+  dataLoaderLoading: `
+  <style>
+    .loader {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #2527b0;
+  --_m: 
+    conic-gradient(#0000 10%,#000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: source-out;
+          mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {to{transform: rotate(1turn)}}
+  </style>
+  <div class="loader"></div>
+  `,
+
 
 
   virtualDom: true,
-  height: "600px",
+  height: "500px",
   layout: "fitColumns",
-  sortMode: "remote",
-  filterMode: "remote",
+  sortMode: "remote",      // local | remote
+  filterMode: "remote",     // local | remote
 
 
   // for overwriting param names
@@ -423,4 +455,14 @@ table.on("cellEdited", function(cell){
     const updatedData = cell._cell.row.data
     table?.updateData([{...updatedData, isUpdated: true}])
     toggleUpdateButton()
+});
+
+Tabulator.extendModule("validate", "validators", {
+  divTen:function(cell, value, parameters){
+      //cell - the cell component for the edited cell
+      //value - the new input value of the cell
+      //parameters - the parameters passed in with the validator
+
+      return !value % 10; //only allow values that are divisible by 10;
+  },
 });
