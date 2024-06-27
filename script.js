@@ -218,6 +218,7 @@ const tableColumns = [
     cellClick: function (e, cell) {
       cell.getRow().toggleSelect();
     },
+    title:"Select",
     
     // header menu show/hide columns
     headerMenu:headerMenu,
@@ -403,6 +404,26 @@ const tableOptions = {
     });
     const searchParams = new URLSearchParams(formattedParams);
     return url + `?${searchParams?.toString()}`;
+  },
+
+  // modify response
+  ajaxResponse:function(url, params, response){
+    console.log(response)
+    //url - the URL of the request
+    //params - the parameters passed with the request
+    //response - the JSON object returned in the body of the response.
+
+    return response; //return the response data to tabulator
+    },
+
+    // row formatter
+    // https://tabulator.info/docs/6.2/components
+    rowFormatter:function(row){
+      var data = row.getData(); //get data object for row
+      // tabulator-row-odd  tabulator-row-even
+          if(row.getElement().classList.contains("tabulator-row-odd")){
+            row.getElement().style.backgroundColor = "rgb(255, 191, 191)"
+          }
   },
 };
 

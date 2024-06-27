@@ -41,3 +41,7 @@ h6 {
     border: none !important;
     background-color: transparent !important;
 }
+
+/* .tabulator-row:nth-of-type(odd){
+    background-color: rgb(255, 191, 191);
+} */
